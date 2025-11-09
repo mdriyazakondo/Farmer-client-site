@@ -31,24 +31,35 @@ const Navbar = () => {
     location.pathname === path
       ? "text-green-600 font-semibold border-b-2 border-green-600 pb-1"
       : "text-gray-700 hover:text-green-600";
-
   const handleLogout = async () => {
     try {
-      await signOutUserFunc();
-      Swal.fire({
-        title: "Logged Out ✅",
-        text: "You have successfully logged out.",
-        icon: "success",
-        confirmButtonColor: "#6366F1",
-        timer: 2000,
-        timerProgressBar: true,
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You will be logged out from your account.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#22c55e",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, log out!",
       });
+
+      if (result.isConfirmed) {
+        await signOutUserFunc();
+        await Swal.fire({
+          title: "Logged Out ✅",
+          text: "You have successfully logged out.",
+          icon: "success",
+          confirmButtonColor: "#22c55e",
+          timer: 2000,
+          timerProgressBar: true,
+        });
+      }
     } catch (error) {
       Swal.fire({
         title: "Logout Failed ❌",
-        text: error.message,
+        text: error.message || "Something went wrong during logout.",
         icon: "error",
-        confirmButtonColor: "#EF4444",
+        confirmButtonColor: "#ef4444",
       });
     }
   };

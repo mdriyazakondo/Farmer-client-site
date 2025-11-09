@@ -1,11 +1,11 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUserFunc, signInGooleUserFunc } = use(AuthContext);
+  const { createUserFunc, signInGooleUserFunc } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -20,6 +20,45 @@ const Register = () => {
       Swal.fire({
         title: "Missing Fields ⚠️",
         text: "Please fill in all fields.",
+        icon: "warning",
+        confirmButtonColor: "#F59E0B",
+      });
+      return;
+    }
+
+    // Password validation
+    const uppercasePattern = /[A-Z]/;
+    const lowercasePattern = /[a-z]/;
+    const numberPattern = /[0-9]/;
+
+    if (!uppercasePattern.test(password)) {
+      Swal.fire({
+        title: "Weak Password ⚠️",
+        text: "Password must contain at least one uppercase letter.",
+        icon: "warning",
+        confirmButtonColor: "#F59E0B",
+      });
+      return;
+    } else if (!lowercasePattern.test(password)) {
+      Swal.fire({
+        title: "Weak Password ⚠️",
+        text: "Password must contain at least one lowercase letter.",
+        icon: "warning",
+        confirmButtonColor: "#F59E0B",
+      });
+      return;
+    } else if (!numberPattern.test(password)) {
+      Swal.fire({
+        title: "Weak Password ⚠️",
+        text: "Password must contain at least one number.",
+        icon: "warning",
+        confirmButtonColor: "#F59E0B",
+      });
+      return;
+    } else if (password.length < 6) {
+      Swal.fire({
+        title: "Weak Password ⚠️",
+        text: "Password must be at least 6 characters long.",
         icon: "warning",
         confirmButtonColor: "#F59E0B",
       });
@@ -80,7 +119,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[90vh] ">
+    <div className="flex items-center justify-center min-h-[90vh]">
       <div className="flex flex-col justify-center w-full max-w-md rounded-2xl px-8 py-10 border border-slate-800 bg-slate-900 text-white shadow-xl">
         <h2 className="text-3xl font-semibold text-center">Create Account</h2>
         <p className="text-slate-400 mt-1 text-center">
@@ -88,7 +127,6 @@ const Register = () => {
         </p>
 
         <form onSubmit={handleSubmit} className="mt-8">
-          {/* Name */}
           <label
             htmlFor="name"
             className="block mb-1 font-medium text-slate-300"
@@ -103,7 +141,6 @@ const Register = () => {
             className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
-          {/* Photo URL */}
           <label
             htmlFor="photo"
             className="block mb-1 font-medium text-slate-300"
@@ -118,7 +155,6 @@ const Register = () => {
             className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
-          {/* Email */}
           <label
             htmlFor="email"
             className="block mb-1 font-medium text-slate-300"
@@ -133,7 +169,6 @@ const Register = () => {
             className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
-          {/* Password */}
           <label
             htmlFor="password"
             className="block mb-1 font-medium text-slate-300"
@@ -148,7 +183,6 @@ const Register = () => {
             className="w-full p-3 mb-6 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
-          {/* Submit */}
           <button
             type="submit"
             className="w-full px-4 py-3 font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
@@ -156,7 +190,6 @@ const Register = () => {
             Sign Up
           </button>
 
-          {/* Footer */}
           <p className="text-right text-slate-400 text-sm mt-6">
             Already have an account?{" "}
             <Link
@@ -171,7 +204,7 @@ const Register = () => {
           onClick={handleGoogle}
           className="full px-4 py-3 font-medium text-white bg-green-600 rounded-lg cursor-pointer hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition mt-4"
         >
-          Goole Login
+          Google Login
         </button>
       </div>
     </div>
