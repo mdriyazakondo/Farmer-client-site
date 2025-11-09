@@ -2,6 +2,8 @@ import React from "react";
 import Banner from "../../components/Banner";
 import { Link, useLoaderData } from "react-router";
 import CropCard from "../../components/CropCard";
+import AboutSection from "../../components/AboutSection";
+import BlogSection from "../../components/BlogSection ";
 
 const Home = () => {
   const products = useLoaderData();
@@ -24,6 +26,8 @@ const Home = () => {
           Show All Products
         </Link>
       </div>
+      <AboutSection />
+      <BlogSection />
     </div>
   );
 };
