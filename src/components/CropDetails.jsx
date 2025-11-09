@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import LoadingSpinner from "../pages/Loading/Loading";
+import Swal from "sweetalert2";
 
 const CropDetails = () => {
   const { id } = useParams();
@@ -35,6 +36,51 @@ const CropDetails = () => {
       .finally(() => setLoading(false));
   }, [id, user]);
 
+  // delete
+  const handleDelete = async (id) => {
+    try {
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You are about to delete this product.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#22c55e",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      });
+
+      if (result.isConfirmed) {
+        const response = await fetch(`http://localhost:3000/products/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to delete the product.");
+        }
+
+        await Swal.fire({
+          title: "Deleted ✅",
+          text: "The product has been successfully deleted.",
+          icon: "success",
+          confirmButtonColor: "#22c55e",
+          timer: 2000,
+          timerProgressBar: true,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Delete Failed ❌",
+        text: error.message || "Something went wrong during deletion.",
+        icon: "error",
+        confirmButtonColor: "#ef4444",
+      });
+    }
+  };
+
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -61,7 +107,7 @@ const CropDetails = () => {
           className="w-full  object-cover rounded-lg mb-6"
         />
       </div>
-      <div className="space-y-3 text-gray-700 w-full md:w-1/2 ">
+      <div className="space-y-2 text-gray-700 w-full md:w-1/2 ">
         <h1 className="text-3xl font-bold text-green-700 mb-4 ">
           {product.name}
         </h1>
@@ -89,6 +135,17 @@ const CropDetails = () => {
           <span className="font-medium text-green-700">Description:</span>{" "}
           {product.description}
         </p>
+        <div className="flex items-center gap-4">
+          <button className="py-2 px-6 bg-green-600 text-white rounded-md cursor-pointer">
+            Update
+          </button>
+          <button
+            onClick={() => handleDelete(product._id)}
+            className="py-2 px-6 bg-red-600 text-white rounded-md cursor-pointer"
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

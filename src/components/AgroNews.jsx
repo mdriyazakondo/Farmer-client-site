@@ -5,7 +5,8 @@ const AgroNews = () => {
     {
       id: 1,
       title: "Sustainable Farming Techniques in 2025",
-      image: "https://i.ibb.co/CPy9PtQ/farm1.jpg",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjIgYh5Reoj8vIKYSz-PT7Zce4dTaFU5Ztng&s",
       description:
         "Learn about the latest eco-friendly methods to boost productivity and protect soil health.",
       date: "Nov 05, 2025",
@@ -13,7 +14,8 @@ const AgroNews = () => {
     {
       id: 2,
       title: "Top 5 Crops to Grow This Winter",
-      image: "https://i.ibb.co/x6xDMcv/farm2.jpg",
+      image:
+        "https://agriplanting.com/wp-content/uploads/2022/11/Winter-Season-Vegetables-2.jpg",
       description:
         "Discover which crops are most profitable and easy to maintain during the winter season.",
       date: "Oct 28, 2025",
@@ -21,7 +23,8 @@ const AgroNews = () => {
     {
       id: 3,
       title: "Digital Agriculture: The Future of Bangladesh",
-      image: "https://i.ibb.co/VqfXYjK/farm3.jpg",
+      image:
+        "https://pressxpress.org/wp-content/uploads/2023/01/Development-of-E-agriculture-in-Bangladesh-2.jpg",
       description:
         "Explore how technology is transforming the agricultural landscape across rural areas.",
       date: "Nov 02, 2025",
