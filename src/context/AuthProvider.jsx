@@ -17,28 +17,34 @@ const gooogleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // create email and password
   const createUserFunc = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // sign in email password
   const signInUserFunc = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // sign in gooogle
   const signInGooleUserFunc = () => {
+    setLoading(true);
     return signInWithPopup(auth, gooogleProvider);
   };
 
   const fontgetPasswordUser = (email) => {
+    setLoading(true);
     return sendPasswordResetEmail(auth, email);
   };
 
   // sign out user
   const signOutUserFunc = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
@@ -46,6 +52,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     return () => {
       unsubcribe();
@@ -59,6 +66,7 @@ const AuthProvider = ({ children }) => {
     fontgetPasswordUser,
     signOutUserFunc,
     user,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

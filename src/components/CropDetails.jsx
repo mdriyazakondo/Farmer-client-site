@@ -7,8 +7,8 @@ const CropDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true); // ✅ loading state
-  const [error, setError] = useState(null); // ✅ error state
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!user?.accessToken) return;
@@ -35,12 +35,10 @@ const CropDetails = () => {
       .finally(() => setLoading(false));
   }, [id, user]);
 
-  // 🟣 Loading State
   if (loading) {
     return <LoadingSpinner />;
   }
 
-  // 🔴 Error or Not Found State
   if (error || !product) {
     return (
       <div className="flex flex-col items-center justify-center h-96 text-center">
@@ -54,9 +52,8 @@ const CropDetails = () => {
     );
   }
 
-  // ✅ Product Found → Show Details
   return (
-    <div className="max-w-5xl mx-auto my-10 p-6 bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-lg flex  gap-6">
+    <div className="max-w-5xl mx-auto my-10 p-6 bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-lg flex flex-col md:flex-row gap-6">
       <div className=" w-full md:w-1/2">
         <img
           src={product.image}

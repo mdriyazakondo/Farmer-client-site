@@ -10,6 +10,8 @@ import Forget from "../auth/Forget";
 import CropAllProdcuts from "../pages/CropAllProdcuts/CropAllProdcuts";
 import CropDetails from "../components/CropDetails";
 import PriviteRoute from "./PriviteRoute";
+import MyPosts from "../pages/MyPosts/MyPosts";
+import MyInterests from "../pages/MyInterests/MyInterests";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +42,22 @@ export const router = createBrowserRouter([
         element: (
           <PriviteRoute>
             <AddCrop />
+          </PriviteRoute>
+        ),
+      },
+      {
+        path: "/myPosts",
+        element: (
+          <PriviteRoute>
+            <MyPosts />
+          </PriviteRoute>
+        ),
+      },
+      {
+        path: "/myInterests",
+        element: (
+          <PriviteRoute>
+            <MyInterests />
           </PriviteRoute>
         ),
       },

@@ -8,7 +8,7 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="z-0">
       <Swiper
         pagination={{
           dynamicBullets: true,
