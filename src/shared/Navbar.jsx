@@ -54,11 +54,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="py-4 border-b border-gray-200 bg-white shadow-sm z-50">
-      <nav className="flex items-center justify-between max-w-[1500px] mx-auto relative ">
-        {/* Logo */}
+    <div className="py-4 border-b border-gray-200 bg-white shadow-sm z-50 relative">
+      <nav className="flex items-center justify-between max-w-[1500px] mx-auto px-4 relative">
         <Link
-          to={"/"}
+          to="/"
           className="text-2xl font-bold text-green-600 flex items-center"
         >
           <span className="px-2 py-1 bg-green-500 text-white rounded-md">
@@ -67,44 +66,35 @@ const Navbar = () => {
           KrishiLink-Farmer’s
         </Link>
 
-        {/* Desktop Links (lg+) */}
-        <div className="hidden lg:flex items-center gap-8 font-medium absolute left-1/2 -translate-x-1/2">
+        <div className="hidden lg:flex flex-1 justify-center items-center gap-8 font-medium">
           {links.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`flex items-center gap-2 transition ${isActive(
-                link.to
-              )}`}
+              className={`flex items-center gap-2 ${isActive(link.to)}`}
             >
               {link.icon} {link.name}
             </Link>
           ))}
-
           {user &&
             userLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`flex items-center gap-2 transition ${isActive(
-                  link.to
-                )}`}
+                className={`flex items-center gap-2 ${isActive(link.to)}`}
               >
                 {link.icon} {link.name}
               </Link>
             ))}
         </div>
 
-        {/* Desktop Auth (lg+) */}
         <div className="hidden lg:flex">
           {loading ? (
-            <>
-              <div className="flex-col gap-4 w-full flex items-center justify-center">
-                <div className="w-10 h-10 border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
-                  <div className="w-10 h-10 border-4 border-transparent text-red-400 text-2xl animate-spin flex items-center justify-center border-t-red-400 rounded-full"></div>
-                </div>
+            <div className="flex-col gap-4 w-full flex items-center justify-center">
+              <div className="w-10 h-10 border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
+                <div className="w-10 h-10 border-4 border-transparent text-red-400 text-2xl animate-spin flex items-center justify-center border-t-red-400 rounded-full"></div>
               </div>
-            </>
+            </div>
           ) : (
             <>
               {user ? (
@@ -116,7 +106,7 @@ const Navbar = () => {
                   />
                   <button
                     onClick={handleLogout}
-                    className="cursor-pointer px-4 py-2 bg-green-500 hover:bg-green-600 transition text-white rounded-lg shadow-md flex items-center"
+                    className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow-md flex items-center"
                   >
                     <CgLogOut className="text-2xl font-bold" /> Logout
                   </button>
@@ -124,7 +114,7 @@ const Navbar = () => {
               ) : (
                 <Link
                   to="/login"
-                  className="cursor-pointer px-4 py-2 bg-green-500 hover:bg-green-600 transition text-white rounded-md shadow-md flex items-center gap-2"
+                  className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md shadow-md flex items-center gap-2"
                 >
                   <BiLogIn className="text-2xl font-bold" /> Login
                 </Link>
@@ -133,70 +123,63 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Hamburger Button (sm/md) */}
         <button
           onClick={() => setOpen(!open)}
-          aria-label="Menu"
           className="lg:hidden text-2xl text-green-600"
         >
           {open ? <FiX /> : <FiMenu />}
         </button>
 
-        {/* Mobile Menu (sm/md) */}
-        {open && (
-          <div
-            className={`${
-              open ? "flex" : "hidden"
-            } fixed top-[65px] left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-3 px-6 font-medium md:hidden transition-all z-50`}
-          >
-            {links.map((link) => (
+        <div
+          className={`absolute top-full left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-3 px-6 font-medium md:hidden transition-all duration-300 ${
+            open
+              ? "opacity-100 translate-y-0 flex"
+              : "opacity-0 -translate-y-5 hidden"
+          }`}
+        >
+          {links.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              onClick={() => setOpen(false)}
+              className={`flex items-center gap-2 ${isActive(link.to)}`}
+            >
+              {link.icon} {link.name}
+            </Link>
+          ))}
+
+          {user &&
+            userLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
                 onClick={() => setOpen(false)}
-                className={`flex items-center gap-2 transition ${isActive(
-                  link.to
-                )}`}
+                className={`flex items-center gap-2 ${isActive(link.to)}`}
               >
                 {link.icon} {link.name}
               </Link>
             ))}
 
-            {user &&
-              userLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setOpen(false)}
-                  className={`flex items-center gap-2 transition ${isActive(
-                    link.to
-                  )}`}
-                >
-                  {link.icon} {link.name}
-                </Link>
-              ))}
-
-            {user ? (
-              <button
-                onClick={async () => {
-                  await handleLogout();
-                  setOpen(false);
-                }}
-                className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
-              >
-                <CgLogOut className="text-xl" /> Logout
-              </button>
-            ) : (
-              <Link
-                to="/login"
-                onClick={() => setOpen(false)}
-                className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
-              >
-                <BiLogIn className="text-xl" /> Login
-              </Link>
-            )}
-          </div>
-        )}
+          {user ? (
+            <button
+              onClick={async () => {
+                await handleLogout();
+                setOpen(false);
+              }}
+              className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
+            >
+              <CgLogOut className="text-xl" /> Logout
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              onClick={() => setOpen(false)}
+              className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
+            >
+              <BiLogIn className="text-xl" /> Login
+            </Link>
+          )}
+        </div>
       </nav>
     </div>
   );

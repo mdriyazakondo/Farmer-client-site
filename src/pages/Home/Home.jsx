@@ -4,6 +4,9 @@ import { Link, useLoaderData } from "react-router";
 import CropCard from "../../components/CropCard";
 import AboutSection from "../../components/AboutSection";
 import BlogSection from "../../components/BlogSection ";
+import HowItWorks from "../../components/HowItWorks";
+import AgroNews from "../../components/AgroNews";
+import Testimonials from "../../components/Testimonials";
 
 const Home = () => {
   const products = useLoaderData();
@@ -26,8 +29,10 @@ const Home = () => {
           Show All Products
         </Link>
       </div>
+      <HowItWorks />
+      <AgroNews />
       <AboutSection />
-      <BlogSection />
+      <Testimonials />
     </div>
   );
 };

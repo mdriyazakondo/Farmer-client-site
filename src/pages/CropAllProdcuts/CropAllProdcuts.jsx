@@ -53,11 +53,11 @@ const CropAllProducts = () => {
           type="search"
           name="search"
           placeholder="Search crops..."
-          className="w-full py-2 px-10 rounded-full border border-green-600 outline-none focus:ring-2 focus:ring-green-400 transition"
+          className="w-full py-2 px-12 rounded-full border border-green-600 outline-none focus:ring-2 focus:ring-green-400 transition"
         />
         <button
           type="submit"
-          className="absolute right-0 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full transition"
+          className="absolute right-0 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-r-full transition cursor-pointer"
         >
           Search
         </button>
