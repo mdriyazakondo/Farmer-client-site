@@ -68,7 +68,7 @@ const AddCrop = () => {
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-xl my-10">
-      <h2 className="text-2xl font-semibold text-center mb-6 text-purple-700">
+      <h2 className="text-2xl font-semibold text-center mb-6 text-green-700">
         Add New Crop
       </h2>
 
@@ -181,7 +181,7 @@ const AddCrop = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition"
+          className="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition"
         >
           {loading ? "Adding..." : "Add Crop"}
         </button>

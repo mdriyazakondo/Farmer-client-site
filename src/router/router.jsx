@@ -12,6 +12,7 @@ import CropDetails from "../components/CropDetails";
 import PriviteRoute from "./PriviteRoute";
 import MyPosts from "../pages/MyPosts/MyPosts";
 import MyInterests from "../pages/MyInterests/MyInterests";
+import MyProfile from "../pages/MyProfile/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,14 @@ export const router = createBrowserRouter([
         element: (
           <PriviteRoute>
             <MyInterests />
+          </PriviteRoute>
+        ),
+      },
+      {
+        path: "/myProfile",
+        element: (
+          <PriviteRoute>
+            <MyProfile />
           </PriviteRoute>
         ),
       },

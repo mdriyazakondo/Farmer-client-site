@@ -100,7 +100,7 @@ const Register = () => {
             id="name"
             name="name"
             placeholder="Enter your name"
-            className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
           {/* Photo URL */}
@@ -115,7 +115,7 @@ const Register = () => {
             id="photo"
             name="photo"
             placeholder="Enter your photo URL"
-            className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
           {/* Email */}
@@ -130,7 +130,7 @@ const Register = () => {
             id="email"
             name="email"
             placeholder="Enter your email"
-            className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
           {/* Password */}
@@ -145,13 +145,13 @@ const Register = () => {
             id="password"
             name="password"
             placeholder="Enter your password"
-            className="w-full p-3 mb-6 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            className="w-full p-3 mb-6 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
           {/* Submit */}
           <button
             type="submit"
-            className="w-full px-4 py-3 font-medium text-white bg-purple-600 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+            className="w-full px-4 py-3 font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
           >
             Sign Up
           </button>
@@ -161,7 +161,7 @@ const Register = () => {
             Already have an account?{" "}
             <Link
               to={"/login"}
-              className="text-purple-500 hover:text-purple-400 font-medium"
+              className="text-green-500 hover:text-green-400 font-medium"
             >
               Sign In
             </Link>
@@ -169,7 +169,7 @@ const Register = () => {
         </form>
         <button
           onClick={handleGoogle}
-          className="full px-4 py-3 font-medium text-white bg-purple-600 rounded-lg cursor-pointer hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition mt-4"
+          className="full px-4 py-3 font-medium text-white bg-green-600 rounded-lg cursor-pointer hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition mt-4"
         >
           Goole Login
         </button>

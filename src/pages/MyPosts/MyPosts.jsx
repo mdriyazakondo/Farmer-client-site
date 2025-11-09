@@ -25,7 +25,7 @@ const MyPosts = () => {
           ))}
         </div>
       ) : (
-        <p className="text-center col-span-full flex items-center justify-center min-h-[60vh] text-4xl md:text-5xl font-bold text-purple-600">
+        <p className="text-center col-span-full flex items-center justify-center min-h-[60vh] text-4xl md:text-5xl font-bold text-green-600">
           No crops found
         </p>
       )}

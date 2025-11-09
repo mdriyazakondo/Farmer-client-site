@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation } from "react-router";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaUserCheck } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 import { GiFarmer } from "react-icons/gi";
 import { CgLogOut } from "react-icons/cg";
 import { BiLogIn } from "react-icons/bi";
-import { MdLibraryAdd } from "react-icons/md";
+import { MdInterests, MdLibraryAdd } from "react-icons/md";
 import { IoCropSharp } from "react-icons/io5";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const { user, signOutUserFunc } = useContext(AuthContext);
+  const { user, signOutUserFunc, loading } = useContext(AuthContext);
 
   const links = [
     { to: "/", name: "Home", icon: <FaHome /> },
@@ -23,13 +23,14 @@ const Navbar = () => {
   const userLinks = [
     { to: "/addCrop", name: "AddCrop", icon: <MdLibraryAdd /> },
     { to: "/myPosts", name: "My Posts", icon: <MdLibraryAdd /> },
-    { to: "/myInterests", name: "My Interests", icon: <MdLibraryAdd /> },
+    { to: "/myInterests", name: "My Interests", icon: <MdInterests /> },
+    { to: "/myProfile", name: "My Profile", icon: <FaUserCheck /> },
   ];
 
   const isActive = (path) =>
     location.pathname === path
-      ? "text-purple-600 font-semibold border-b-2 border-purple-600 pb-1"
-      : "text-gray-700 hover:text-purple-600";
+      ? "text-green-600 font-semibold border-b-2 border-green-600 pb-1"
+      : "text-gray-700 hover:text-green-600";
 
   const handleLogout = async () => {
     try {
@@ -54,13 +55,13 @@ const Navbar = () => {
 
   return (
     <div className="py-4 border-b border-gray-200 bg-white shadow-sm z-50">
-      <nav className="flex items-center justify-between max-w-[1500px] mx-auto relative px-6">
+      <nav className="flex items-center justify-between max-w-[1500px] mx-auto relative ">
         {/* Logo */}
         <Link
           to={"/"}
-          className="text-2xl font-bold text-purple-600 flex items-center"
+          className="text-2xl font-bold text-green-600 flex items-center"
         >
-          <span className="px-2 py-1 bg-purple-500 text-white rounded-md">
+          <span className="px-2 py-1 bg-green-500 text-white rounded-md">
             <GiFarmer className="h-6 w-6" />
           </span>
           KrishiLink-Farmer’s
@@ -96,27 +97,39 @@ const Navbar = () => {
 
         {/* Desktop Auth (lg+) */}
         <div className="hidden lg:flex">
-          {user ? (
-            <div className="flex items-center gap-3">
-              <img
-                className="w-10 h-10 rounded-full border-2 border-purple-500"
-                src={user?.photoURL}
-                alt={user?.displayName}
-              />
-              <button
-                onClick={handleLogout}
-                className="cursor-pointer px-4 py-2 bg-purple-500 hover:bg-purple-600 transition text-white rounded-lg shadow-md flex items-center"
-              >
-                <CgLogOut className="text-2xl font-bold" /> Logout
-              </button>
-            </div>
+          {loading ? (
+            <>
+              <div className="flex-col gap-4 w-full flex items-center justify-center">
+                <div className="w-10 h-10 border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
+                  <div className="w-10 h-10 border-4 border-transparent text-red-400 text-2xl animate-spin flex items-center justify-center border-t-red-400 rounded-full"></div>
+                </div>
+              </div>
+            </>
           ) : (
-            <Link
-              to="/login"
-              className="cursor-pointer px-4 py-2 bg-purple-500 hover:bg-purple-600 transition text-white rounded-md shadow-md flex items-center gap-2"
-            >
-              <BiLogIn className="text-2xl font-bold" /> Login
-            </Link>
+            <>
+              {user ? (
+                <div className="flex items-center gap-3">
+                  <img
+                    className="w-10 h-10 rounded-full border-2 border-green-500"
+                    src={user?.photoURL}
+                    alt={user?.displayName}
+                  />
+                  <button
+                    onClick={handleLogout}
+                    className="cursor-pointer px-4 py-2 bg-green-500 hover:bg-green-600 transition text-white rounded-lg shadow-md flex items-center"
+                  >
+                    <CgLogOut className="text-2xl font-bold" /> Logout
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="cursor-pointer px-4 py-2 bg-green-500 hover:bg-green-600 transition text-white rounded-md shadow-md flex items-center gap-2"
+                >
+                  <BiLogIn className="text-2xl font-bold" /> Login
+                </Link>
+              )}
+            </>
           )}
         </div>
 
@@ -124,7 +137,7 @@ const Navbar = () => {
         <button
           onClick={() => setOpen(!open)}
           aria-label="Menu"
-          className="lg:hidden text-2xl text-purple-600"
+          className="lg:hidden text-2xl text-green-600"
         >
           {open ? <FiX /> : <FiMenu />}
         </button>
@@ -169,7 +182,7 @@ const Navbar = () => {
                   await handleLogout();
                   setOpen(false);
                 }}
-                className="w-full px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
+                className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
               >
                 <CgLogOut className="text-xl" /> Logout
               </button>
@@ -177,7 +190,7 @@ const Navbar = () => {
               <Link
                 to="/login"
                 onClick={() => setOpen(false)}
-                className="w-full px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
+                className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
               >
                 <BiLogIn className="text-xl" /> Login
               </Link>

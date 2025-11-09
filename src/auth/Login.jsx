@@ -71,7 +71,7 @@ const Login = () => {
             id="email"
             name="email"
             placeholder="Enter your email"
-            className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            className="w-full p-3 mb-4 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
           <label
@@ -85,13 +85,13 @@ const Login = () => {
             id="password"
             name="password"
             placeholder="Enter your password"
-            className="w-full p-3 mb-2 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            className="w-full p-3 mb-2 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
           />
 
           <div className="text-right mb-6">
             <Link
               to={"/forget"}
-              className="text-sm font-medium text-purple-500 hover:text-purple-400"
+              className="text-sm font-medium text-green-500 hover:text-green-400"
             >
               Forgot password?
             </Link>
@@ -99,13 +99,13 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full px-4 py-3 font-medium text-white bg-purple-600 rounded-lg cursor-pointer hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+            className="w-full px-4 py-3 font-medium text-white bg-green-600 rounded-lg cursor-pointer hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
           >
             Sign In
           </button>
           <p className="my-3 text-right text-sm font-medium flex gap-2 items-end justify-end">
             please create user ?{" "}
-            <Link to={"/register"} className="text-purple-500">
+            <Link to={"/register"} className="text-green-500">
               Sign Up
             </Link>
           </p>
@@ -113,7 +113,7 @@ const Login = () => {
 
         <button
           onClick={handleGoogle}
-          className="full px-4 py-3 font-medium text-white bg-purple-600 rounded-lg cursor-pointer hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+          className="full px-4 py-3 font-medium text-white bg-green-600 rounded-lg cursor-pointer hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
         >
           Goole Login
         </button>

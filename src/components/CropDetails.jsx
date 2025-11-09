@@ -42,7 +42,7 @@ const CropDetails = () => {
   if (error || !product) {
     return (
       <div className="flex flex-col items-center justify-center h-96 text-center">
-        <h2 className="text-3xl font-bold text-purple-700 mb-3">
+        <h2 className="text-3xl font-bold text-green-700 mb-3">
           Product Not Found 😢
         </h2>
         <p className="text-gray-600">
@@ -53,7 +53,7 @@ const CropDetails = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto my-10 p-6 bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-lg flex flex-col md:flex-row gap-6">
+    <div className="max-w-5xl mx-auto my-10 p-6 bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg flex flex-col md:flex-row gap-6">
       <div className=" w-full md:w-1/2">
         <img
           src={product.image}
@@ -62,31 +62,31 @@ const CropDetails = () => {
         />
       </div>
       <div className="space-y-3 text-gray-700 w-full md:w-1/2 ">
-        <h1 className="text-3xl font-bold text-purple-700 mb-4 ">
+        <h1 className="text-3xl font-bold text-green-700 mb-4 ">
           {product.name}
         </h1>
         <p>
-          <span className="font-medium text-purple-700">Type:</span>{" "}
+          <span className="font-medium text-green-700">Type:</span>{" "}
           {product.type}
         </p>
         <p>
-          <span className="font-medium text-purple-700">Price:</span>{" "}
+          <span className="font-medium text-green-700">Price:</span>{" "}
           {product.pricePerUnit} / {product.unit}
         </p>
         <p>
-          <span className="font-medium text-purple-700">Quantity:</span>{" "}
+          <span className="font-medium text-green-700">Quantity:</span>{" "}
           {product.quantity}
         </p>
         <p>
-          <span className="font-medium text-purple-700">Location:</span>{" "}
+          <span className="font-medium text-green-700">Location:</span>{" "}
           {product.location}
         </p>
         <p>
-          <span className="font-medium text-purple-700">Owner:</span>{" "}
+          <span className="font-medium text-green-700">Owner:</span>{" "}
           {product.owner?.ownerName} ({product.owner?.ownerEmail})
         </p>
         <p>
-          <span className="font-medium text-purple-700">Description:</span>{" "}
+          <span className="font-medium text-green-700">Description:</span>{" "}
           {product.description}
         </p>
       </div>

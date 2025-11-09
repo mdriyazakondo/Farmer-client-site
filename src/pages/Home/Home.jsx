@@ -19,7 +19,7 @@ const Home = () => {
       <div className="text-center my-8">
         <Link
           to={"/all-crop"}
-          className="bg-purple-600 text-white py-2.5 px-5 rounded-md"
+          className="bg-green-600 text-white py-2.5 px-5 rounded-md"
         >
           Show All Products
         </Link>

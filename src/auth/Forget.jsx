@@ -51,7 +51,7 @@ const Forget = () => {
         onSubmit={handleReset}
         className="flex flex-col gap-4 w-80 sm:w-[352px] p-8 rounded-lg shadow-xl border border-gray-200 bg-white"
       >
-        <h2 className="text-2xl font-medium text-center text-purple-500">
+        <h2 className="text-2xl font-medium text-center text-green-500">
           Reset Password
         </h2>
 
@@ -60,7 +60,7 @@ const Forget = () => {
           <input
             type="email"
             placeholder="Enter your email"
-            className="border border-gray-300 rounded w-full p-2 outline-purple-500"
+            className="border border-gray-300 rounded w-full p-2 outline-green-500"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -70,7 +70,7 @@ const Forget = () => {
         <button
           type="submit"
           disabled={loading}
-          className="bg-purple-500 hover:bg-purple-600 text-white w-full py-2 rounded-md transition"
+          className="bg-green-500 hover:bg-green-600 text-white w-full py-2 rounded-md transition"
         >
           {loading ? "Sending..." : "Reset Password"}
         </button>

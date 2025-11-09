@@ -18,9 +18,9 @@ const Footer = () => {
           <div>
             <Link
               to={"/"}
-              className="text-2xl font-bold text-purple-500 flex items-center gap-2"
+              className="text-2xl font-bold text-green-500 flex items-center gap-2"
             >
-              <span className="px-2 py-1 bg-purple-500 text-white rounded-md">
+              <span className="px-2 py-1 bg-green-500 text-white rounded-md">
                 <GiFarmer className="h-6 w-6" />
               </span>
               KrishiLink-Farmer’s
@@ -34,31 +34,31 @@ const Footer = () => {
             <div className="flex items-center gap-4 mt-6">
               <a
                 href="#"
-                className="p-2.5 rounded-full bg-slate-800 hover:bg-purple-600 transition"
+                className="p-2.5 rounded-full bg-slate-800 hover:bg-green-600 transition"
               >
                 <FaFacebookF />
               </a>
               <a
                 href="#"
-                className="p-2.5 rounded-full bg-slate-800 hover:bg-purple-600 transition"
+                className="p-2.5 rounded-full bg-slate-800 hover:bg-green-600 transition"
               >
                 <FaTwitter />
               </a>
               <a
                 href="#"
-                className="p-2.5 rounded-full bg-slate-800 hover:bg-purple-600 transition"
+                className="p-2.5 rounded-full bg-slate-800 hover:bg-green-600 transition"
               >
                 <FaInstagram />
               </a>
               <a
                 href="#"
-                className="p-2.5 rounded-full bg-slate-800 hover:bg-purple-600 transition"
+                className="p-2.5 rounded-full bg-slate-800 hover:bg-green-600 transition"
               >
                 <FaLinkedinIn />
               </a>
               <a
                 href="#"
-                className="p-2.5 rounded-full bg-slate-800 hover:bg-purple-600 transition"
+                className="p-2.5 rounded-full bg-slate-800 hover:bg-green-600 transition"
               >
                 <FaGithub />
               </a>
@@ -70,25 +70,25 @@ const Footer = () => {
             <h2 className="font-semibold text-white mb-5">Company</h2>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <a href="#" className="hover:text-purple-400 transition">
+                <a href="#" className="hover:text-green-400 transition">
                   About us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-purple-400 transition">
+                <a href="#" className="hover:text-green-400 transition">
                   Careers{" "}
-                  <span className="text-xs text-white bg-purple-600 rounded-md ml-2 px-2 py-0.5">
+                  <span className="text-xs text-white bg-green-600 rounded-md ml-2 px-2 py-0.5">
                     Hiring!
                   </span>
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-purple-400 transition">
+                <a href="#" className="hover:text-green-400 transition">
                   Contact us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-purple-400 transition">
+                <a href="#" className="hover:text-green-400 transition">
                   Privacy policy
                 </a>
               </li>
@@ -100,22 +100,22 @@ const Footer = () => {
             <h2 className="font-semibold text-white mb-5">Resources</h2>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <a href="#" className="hover:text-purple-400 transition">
+                <a href="#" className="hover:text-green-400 transition">
                   Documentation
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-purple-400 transition">
+                <a href="#" className="hover:text-green-400 transition">
                   Tutorials
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-purple-400 transition">
+                <a href="#" className="hover:text-green-400 transition">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-purple-400 transition">
+                <a href="#" className="hover:text-green-400 transition">
                   Support
                 </a>
               </li>
@@ -136,7 +136,7 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="w-full px-3 py-2 text-sm bg-transparent text-white placeholder-slate-400 focus:outline-none"
               />
-              <button className="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md text-sm font-medium transition">
+              <button className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md text-sm font-medium transition">
                 Subscribe
               </button>
             </div>
@@ -144,7 +144,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-slate-800 mt-10 pt-6 text-center text-slate-500 text-sm">
-          © 2025 <span className="text-purple-400"> KrishiLink-Farmer’s</span>.
+          © 2025 <span className="text-green-400"> KrishiLink-Farmer’s</span>.
           All rights reserved.
         </div>
       </div>

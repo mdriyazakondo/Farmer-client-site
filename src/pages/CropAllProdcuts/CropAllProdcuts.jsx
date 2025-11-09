@@ -39,7 +39,7 @@ const CropAllProducts = () => {
   return (
     <div className="px-5 md:px-10 my-10">
       {/* Heading */}
-      <h3 className="text-3xl md:text-4xl font-bold text-center text-purple-600 mb-6">
+      <h3 className="text-3xl md:text-4xl font-bold text-center text-green-600 mb-6">
         KrishiLink Farmer’s All Crops
       </h3>
 
@@ -53,11 +53,11 @@ const CropAllProducts = () => {
           type="search"
           name="search"
           placeholder="Search crops..."
-          className="w-full py-2 px-10 rounded-full border border-purple-600 outline-none focus:ring-2 focus:ring-purple-400 transition"
+          className="w-full py-2 px-10 rounded-full border border-green-600 outline-none focus:ring-2 focus:ring-green-400 transition"
         />
         <button
           type="submit"
-          className="absolute right-0 bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-full transition"
+          className="absolute right-0 bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full transition"
         >
           Search
         </button>
@@ -71,7 +71,7 @@ const CropAllProducts = () => {
           ))}
         </div>
       ) : (
-        <p className="text-center col-span-full flex items-center justify-center min-h-[60vh] text-4xl md:text-5xl font-bold text-purple-600">
+        <p className="text-center col-span-full flex items-center justify-center min-h-[60vh] text-4xl md:text-5xl font-bold text-green-600">
           No crops found
         </p>
       )}
