@@ -33,7 +33,7 @@ const AgroNews = () => {
 
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+      <div className="max-w-[1500px] mx-auto  text-center">
         <h2 className="text-3xl font-bold text-green-700 mb-8">
           📰 Agro News & Blogs
         </h2>

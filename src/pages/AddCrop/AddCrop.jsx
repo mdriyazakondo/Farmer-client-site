@@ -25,7 +25,7 @@ const AddCrop = () => {
           ownerEmail: user.email,
           ownerName: user.displayName,
         },
-        interests: [], // default empty array
+        interests: [],
       };
 
       const res = await fetch(
