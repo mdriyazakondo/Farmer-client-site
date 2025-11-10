@@ -6,6 +6,7 @@ import { GiFarmer } from "react-icons/gi";
 import { CgLogOut } from "react-icons/cg";
 import { BiLogIn } from "react-icons/bi";
 import { MdInterests, MdLibraryAdd } from "react-icons/md";
+import { BsPostcardFill } from "react-icons/bs";
 import { IoCropSharp } from "react-icons/io5";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
@@ -21,8 +22,8 @@ const Navbar = () => {
   ];
 
   const userLinks = [
-    { to: "/addCrop", name: "AddCrop", icon: <MdLibraryAdd /> },
-    { to: "/myPosts", name: "My Posts", icon: <MdLibraryAdd /> },
+    { to: "/addCrop", name: "Add Crop", icon: <MdLibraryAdd /> },
+    { to: "/myPosts", name: "My Posts", icon: <BsPostcardFill /> },
     { to: "/myInterests", name: "My Interests", icon: <MdInterests /> },
     { to: "/myProfile", name: "My Profile", icon: <FaUserCheck /> },
   ];

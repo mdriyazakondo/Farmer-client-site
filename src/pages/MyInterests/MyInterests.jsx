@@ -24,7 +24,10 @@ const MyInterests = () => {
     <div className="p-4 min-h-[50vh] my-8">
       <h2 className="text-2xl font-bold mb-4">My Interests</h2>
       {products.length === 0 ? (
-        <p>No interests found.</p>
+        <div className="flex-col flex items-center justify-center min-h-[40vh]">
+          <p className="text-4xl font-semibold">No interests found.</p>
+
+        </div>
       ) : (
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (

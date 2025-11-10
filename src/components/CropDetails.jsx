@@ -106,7 +106,7 @@ const CropDetails = () => {
 
   return (
     <>
-      <div className="max-w-5xl mx-auto my-10 p-6 bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg flex flex-col md:flex-row gap-6">
+      <div className="max-w-5xl mx-auto my-10 p-6 bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg flex flex-col items-center justify-center md:flex-row gap-6">
         <div className=" w-full md:w-1/2">
           <img
             src={product.image}

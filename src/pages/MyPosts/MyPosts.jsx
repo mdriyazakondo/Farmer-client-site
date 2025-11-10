@@ -1,6 +1,8 @@
 import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import CropCard from "../../components/CropCard";
+import { Link } from "react-router";
+import { FaEdit } from "react-icons/fa";
 
 const MyPosts = () => {
   const [products, setProducts] = useState([]);
@@ -28,9 +30,18 @@ const MyPosts = () => {
           ))}
         </div>
       ) : (
-        <p className="text-center col-span-full flex items-center justify-center min-h-[60vh] text-4xl md:text-5xl font-bold text-green-600">
-          No crops found
-        </p>
+        <div className="text-center col-span-full flex items-center justify-center min-h-[60vh]   flex-col">
+          <p className="text-gray-600 text-4xl md:text-5xl font-bold">
+            {" "}
+            You have not make any post.
+          </p>
+          <Link
+            to={"/addCrop"}
+            className="border py-2 px-5 bg-green-500 text-white font-medium text-xl mt-6 rounded-md flex items-center gap-1"
+          >
+            <FaEdit /> Add Post
+          </Link>
+        </div>
       )}
     </div>
   );

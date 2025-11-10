@@ -57,15 +57,6 @@ const CropCard = ({ products }) => {
             {products.description.slice(0, 90)}...
           </span>
         </div>
-
-        {products.interests && products.interests.length > 0 && (
-          <div>
-            <span className="font-medium text-green-700">Interests:</span>{" "}
-            <span className="text-gray-600">
-              {products.interests.join(", ")}
-            </span>
-          </div>
-        )}
       </div>
 
       {/* View Details Button */}
