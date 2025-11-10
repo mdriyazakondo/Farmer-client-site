@@ -72,7 +72,7 @@ const Navbar = () => {
           to="/"
           className="text-2xl font-bold text-green-600 flex items-center"
         >
-          <span className="px-2 py-1 bg-green-500 text-white rounded-md">
+          <span className="px-2 py-1 bg-green-500 text-white rounded-md gap-1">
             <GiFarmer className="h-6 w-6" />
           </span>
           KrishiLink-Farmer’s
