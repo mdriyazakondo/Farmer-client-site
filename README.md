@@ -1,16 +1,54 @@
-# React + Vite
+# 🌾 KrishiLink - Farmer’s Growth & Connection Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🧩 1. Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**KrishiLink** is a digital platform that connects **farmers, traders, and consumers** in one place.  
+It helps farmers to showcase their crops, traders to find reliable suppliers, and consumers to access fresh agricultural products directly.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🌍 2. Live Site
 
-## Expanding the ESLint configuration
+🔗 **Live URL:** [https://krishilink-farmer.netlify.app](https://krishilink-farmer.netlify.app)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+---
+
+## ✨ 3. Key Features
+
+- 👨‍🌾 **Post Crops Easily:** Farmers can post crops with price, quantity, and image.  
+- 💬 **Interest System:** Traders or buyers can show interest and send messages to farmers.  
+- 📰 **Agro News & Blogs:** Users can read and share agricultural articles and tips.  
+- 🔒 **Secure Authentication:** Firebase-based login and registration system.  
+- 📱 **Fully Responsive Design:** Optimized for all screen sizes (mobile, tablet, desktop).  
+- 📊 **Dynamic Data:** Data stored and managed in MongoDB with real-time updates.
+
+---
+
+## ⚙️ 4. Technologies Used
+
+**Frontend:** React.js, Tailwind CSS, React Router  
+**Backend:** Node.js, Express.js, MongoDB  
+**Authentication:** Firebase Authentication  
+**Hosting:** Firebase / Vercel  
+
+---
+
+## 🧠 5. Installation & Setup
+
+To run this project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/mdriyazakondo/Farmer-client-site.git
+
+# Navigate to the project folder
+cd Farmer-client-site
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
