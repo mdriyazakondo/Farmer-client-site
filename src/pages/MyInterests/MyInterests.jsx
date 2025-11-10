@@ -7,11 +7,14 @@ const MyInterests = () => {
 
   useEffect(() => {
     if (!user?.email) return;
-    fetch(`http://localhost:3000/my-interests?userEmail=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    fetch(
+      `https://krishilink-server-three.vercel.app/my-interests?userEmail=${user.email}`,
+      {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error(err));

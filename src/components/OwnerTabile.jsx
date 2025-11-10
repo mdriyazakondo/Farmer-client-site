@@ -7,7 +7,7 @@ const OwnerTable = ({ interests: initialInterests, cropId, user }) => {
   const updateInterestStatus = async (interestId, status) => {
     try {
       const res = await fetch(
-        `http://localhost:3000/products/${cropId}/interests/${interestId}`,
+        `https://krishilink-server-three.vercel.app/products/${cropId}/interests/${interestId}`,
         {
           method: "PATCH",
           headers: {

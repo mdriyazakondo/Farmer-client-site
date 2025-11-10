@@ -25,7 +25,8 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/latest-products"),
+        loader: () =>
+          fetch("https://krishilink-server-three.vercel.app/latest-products"),
       },
       {
         path: "/all-crop",

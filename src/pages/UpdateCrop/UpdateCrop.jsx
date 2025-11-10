@@ -14,7 +14,9 @@ const UpdateCrop = () => {
   useEffect(() => {
     const fetchCrop = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/products/${id}`);
+        const res = await fetch(
+          `https://krishilink-server-three.vercel.app/products/${id}`
+        );
         const data = await res.json();
         setCrop(data);
       } catch (err) {
@@ -42,14 +44,17 @@ const UpdateCrop = () => {
     };
 
     try {
-      const res = await fetch(`http://localhost:3000/products/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${user.accessToken}`,
-        },
-        body: JSON.stringify(updatedCrop),
-      });
+      const res = await fetch(
+        `https://krishilink-server-three.vercel.app/products/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${user.accessToken}`,
+          },
+          body: JSON.stringify(updatedCrop),
+        }
+      );
 
       const data = await res.json();
 

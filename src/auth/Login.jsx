@@ -1,12 +1,15 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
+import { IoEyeOutline } from "react-icons/io5";
+import { FaRegEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { signInUserFunc, signInGooleUserFunc } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -80,13 +83,26 @@ const Login = () => {
           >
             Password
           </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            className="w-full p-3 mb-2 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
-          />
+          <div className="flex items-center relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              className="w-full p-3 mb-2 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 transform -translate-y-2/3 text-slate-400 hover:text-green-500"
+            >
+              {showPassword ? (
+                <IoEyeOutline className="w-6 h-6 cursor-pointer" />
+              ) : (
+                <FaRegEyeSlash className="w-6 h-6 cursor-pointer" />
+              )}
+            </button>
+          </div>
 
           <div className="text-right mb-6">
             <Link

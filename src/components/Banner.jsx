@@ -24,7 +24,7 @@ const Banner = () => {
         <SwiperSlide>
           <img
             className="h-[400px] md:h-[500px] lg:h-[600px] w-full object-cover"
-            src="https://media.istockphoto.com/id/108313157/photo/india-farming.jpg?s=612x612&w=0&k=20&c=eIh5qLq3fmUIKfVVzg1GO-aU2cTXCH_6yjf16zMPEK8="
+            src="https://png.pngtree.com/png-clipart/20210808/original/pngtree-personalized-smear-farm-organic-vegetable-web-banner-png-image_6621469.jpg"
             alt="Banner 1"
           />
         </SwiperSlide>
@@ -32,7 +32,7 @@ const Banner = () => {
         <SwiperSlide>
           <img
             className="h-[400px] md:h-[500px] lg:h-[600px] w-full object-cover"
-            src="https://media.istockphoto.com/id/1092520698/photo/indian-farmer-at-onion-field.jpg?s=612x612&w=0&k=20&c=gvu-DzA17EyVSNzvdf7L3R8q0iIvLapG15ktOimqXqU="
+            src="https://cdn.vectorstock.com/i/500p/68/54/fresh-farm-produce-sale-banner-vector-55606854.jpg"
             alt="Banner 2"
           />
         </SwiperSlide>
@@ -40,14 +40,14 @@ const Banner = () => {
         <SwiperSlide>
           <img
             className="h-[400px] md:h-[500px] lg:h-[600px] w-full object-cover"
-            src="https://images.pexels.com/photos/3560020/pexels-photo-3560020.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            src="https://img.pikbest.com/origin/06/12/43/05bpIkbEsTmwN.jpg%21bw700"
             alt="Banner 3"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             className="h-[400px] md:h-[500px] lg:h-[600px] w-full object-cover"
-            src="https://www.shutterstock.com/image-photo/outdoor-photo-bangladeshi-happy-paddy-600nw-2539826285.jpg"
+            src="https://s3.envato.com/files/134262889/17%20-%20Coming-Soon.jpg"
             alt="Banner 3"
           />
         </SwiperSlide>

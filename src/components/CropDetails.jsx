@@ -17,7 +17,7 @@ const CropDetails = () => {
   useEffect(() => {
     if (!user?.accessToken) return;
 
-    fetch(`http://localhost:3000/products/${id}`, {
+    fetch(`https://krishilink-server-three.vercel.app/products/${id}`, {
       headers: {
         authorization: `Bearer ${user.accessToken}`,
       },
@@ -53,13 +53,16 @@ const CropDetails = () => {
       });
 
       if (result.isConfirmed) {
-        const response = await fetch(`http://localhost:3000/products/${id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${user.accessToken}`,
-          },
-        });
+        const response = await fetch(
+          `https://krishilink-server-three.vercel.app/products/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              authorization: `Bearer ${user.accessToken}`,
+            },
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to delete the product.");

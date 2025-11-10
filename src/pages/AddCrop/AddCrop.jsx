@@ -28,14 +28,17 @@ const AddCrop = () => {
         interests: [], // default empty array
       };
 
-      const res = await fetch("http://localhost:3000/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          authorization: `Bearer ${user.accessToken}`,
-        },
-        body: JSON.stringify(newCrop),
-      });
+      const res = await fetch(
+        "https://krishilink-server-three.vercel.app/products",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${user.accessToken}`,
+          },
+          body: JSON.stringify(newCrop),
+        }
+      );
 
       const data = await res.json();
 

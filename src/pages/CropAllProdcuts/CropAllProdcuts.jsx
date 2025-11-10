@@ -9,7 +9,7 @@ const CropAllProducts = () => {
 
   // 🟣 Fetch all products
   useEffect(() => {
-    fetch("http://localhost:3000/products")
+    fetch("https://krishilink-server-three.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);
@@ -25,7 +25,7 @@ const CropAllProducts = () => {
     if (!search) return;
 
     setLoading(true);
-    fetch(`http://localhost:3000/search?search=${search}`)
+    fetch(`https://krishilink-server-three.vercel.app/search?search=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);

@@ -32,7 +32,7 @@ const IntrestFrom = ({ crop }) => {
     try {
       setSubmitting(true);
       const response = await fetch(
-        `http://localhost:3000/products/${crop._id}/interests`,
+        `https://krishilink-server-three.vercel.app/products/${crop._id}/interests`,
         {
           method: "POST",
           headers: {
