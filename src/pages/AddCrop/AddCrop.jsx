@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import Swal from "sweetalert2"; // npm install sweetalert2
 import { AuthContext } from "../../context/AuthProvider";
+import LoadingSpinner from "../Loading/Loading";
 
 const AddCrop = () => {
   const { user } = useContext(AuthContext); // logged in user info
@@ -68,6 +69,10 @@ const AddCrop = () => {
       setLoading(false);
     }
   };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-xl my-10">

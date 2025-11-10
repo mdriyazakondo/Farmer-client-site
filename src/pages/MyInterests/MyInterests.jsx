@@ -1,12 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import LoadingSpinner from "../Loading/Loading";
 
 const MyInterests = () => {
   const [products, setProducts] = useState([]);
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!user?.email) return;
+    setLoading(true);
     fetch(
       `https://krishilink-server-three.vercel.app/my-interests?userEmail=${user.email}`,
       {
@@ -16,9 +19,16 @@ const MyInterests = () => {
       }
     )
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      })
       .catch((err) => console.error(err));
   }, [user]);
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="p-4 min-h-[50vh] my-8">
@@ -26,7 +36,6 @@ const MyInterests = () => {
       {products.length === 0 ? (
         <div className="flex-col flex items-center justify-center min-h-[40vh]">
           <p className="text-4xl font-semibold">No interests found.</p>
-
         </div>
       ) : (
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

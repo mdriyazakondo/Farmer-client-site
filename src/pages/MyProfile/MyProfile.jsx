@@ -6,7 +6,7 @@ import LoadingSpinner from "../Loading/Loading";
 const MyProfile = () => {
   const { user, loading, setLoading } = use(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
-  console.log(user);
+
   const handleUpdate = (e) => {
     e.preventDefault();
     const name = e.target.name.value;

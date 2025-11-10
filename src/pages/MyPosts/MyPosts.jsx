@@ -3,12 +3,15 @@ import { AuthContext } from "../../context/AuthProvider";
 import CropCard from "../../components/CropCard";
 import { Link } from "react-router";
 import { FaEdit } from "react-icons/fa";
+import LoadingSpinner from "../Loading/Loading";
 
 const MyPosts = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { user } = use(AuthContext);
 
   useEffect(() => {
+    setLoading(true);
     fetch(
       `https://krishilink-server-three.vercel.app/my-posted?email=${user.email}`,
       {
@@ -18,8 +21,14 @@ const MyPosts = () => {
       }
     )
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      });
   }, []);
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div>

@@ -67,15 +67,15 @@ const Navbar = () => {
 
   return (
     <div className="py-4 border-b border-gray-200 bg-white shadow-sm z-50 relative">
-      <nav className="flex items-center justify-between max-w-[1500px] mx-auto px-4 relative">
+      <nav className="flex items-center justify-between max-w-[1500px] mx-auto px-4 md:px-0 relative">
         <Link
           to="/"
-          className="text-2xl font-bold text-green-600 flex items-center"
+          className="text-2xl font-bold text-green-600 flex items-center  gap-1"
         >
-          <span className="px-2 py-1 bg-green-500 text-white rounded-md gap-3">
-            <GiFarmer className="h-6 w-6" />
+          <span className="px-2 py-1 bg-green-500 text-white rounded-md">
+            <GiFarmer className="h-6 w-6 " />
           </span>
-          KrishiLink-Farmer’s
+          <span> KrishiLink-Farmer’s</span>
         </Link>
 
         <div className="hidden lg:flex flex-1 justify-center items-center gap-8 font-medium">
