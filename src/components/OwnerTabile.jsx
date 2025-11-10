@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-
 const OwnerTabile = ({ interests }) => {
   return (
     <div className="max-w-5xl mx-auto mt-10 bg-white shadow-md rounded-xl overflow-hidden mb-8">
@@ -8,7 +6,7 @@ const OwnerTabile = ({ interests }) => {
       </h2>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse">
+        <table className="min-w-full border-collapse table-auto">
           <thead className="bg-green-600 text-white">
             <tr>
               <th className="py-3 px-4 text-left">Buyer Name</th>
@@ -24,8 +22,10 @@ const OwnerTabile = ({ interests }) => {
                 key={item._id}
                 className="border-b hover:bg-green-50 transition"
               >
-                <td className="py-3 px-4">{item.buyerName}</td>
-                <td className="py-3 px-4">{item.buyerEmail}</td>
+                <td className="py-3 px-4 whitespace-nowrap">{item.userName}</td>
+                <td className="py-3 px-4 whitespace-nowrap">
+                  {item.userEmail}
+                </td>
                 <td className="py-3 px-4">{item.message}</td>
                 <td className="py-3 px-4 text-center">
                   <span
@@ -40,16 +40,16 @@ const OwnerTabile = ({ interests }) => {
                     {item.status}
                   </span>
                 </td>
-                <td className="py-3 px-4 text-center">
+                <td className="py-3 px-4 text-center flex justify-center gap-2 flex-wrap">
                   <button
-                    className="bg-green-600 text-white px-3 py-1 rounded-md hover:bg-green-700 mr-2"
-                    onClick={() => alert(`Accepted ${item.buyerName}`)}
+                    className="bg-green-600 text-white px-3 py-1 rounded-md hover:bg-green-700"
+                    onClick={() => alert(`Accepted ${item.userName}`)}
                   >
                     Accept
                   </button>
                   <button
                     className="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700"
-                    onClick={() => alert(`Rejected ${item.buyerName}`)}
+                    onClick={() => alert(`Rejected ${item.userName}`)}
                   >
                     Reject
                   </button>

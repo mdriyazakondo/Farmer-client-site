@@ -7,6 +7,7 @@ const IntrestFrom = ({ crop }) => {
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const { user } = use(AuthContext);
+  console.log(user);
 
   const totalPrice = (Number(quantity) || 0) * (crop?.pricePerUnit || 0);
 
@@ -40,7 +41,7 @@ const IntrestFrom = ({ crop }) => {
           },
           body: JSON.stringify({
             userEmail: user.email,
-            userName: user.name,
+            userName: user.displayName,
             quantity,
             message,
           }),
