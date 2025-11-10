@@ -3,6 +3,8 @@ import { Link, useNavigate, useParams } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import LoadingSpinner from "../pages/Loading/Loading";
 import Swal from "sweetalert2";
+import IntrestFrom from "./IntrestFrom";
+import OwnerTabile from "./OwnerTabile";
 
 const CropDetails = () => {
   const { id } = useParams();
@@ -100,60 +102,67 @@ const CropDetails = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto my-10 p-6 bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg flex flex-col md:flex-row gap-6">
-      <div className=" w-full md:w-1/2">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full  object-cover rounded-lg mb-6"
-        />
+    <>
+      <div className="max-w-5xl mx-auto my-10 p-6 bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg flex flex-col md:flex-row gap-6">
+        <div className=" w-full md:w-1/2">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full  object-cover rounded-lg mb-6"
+          />
+        </div>
+        <div className="space-y-2 text-gray-700 w-full md:w-1/2 ">
+          <h1 className="text-3xl font-bold text-green-700 mb-4 ">
+            {product.name}
+          </h1>
+          <p>
+            <span className="font-medium text-green-700">Type:</span>{" "}
+            {product.type}
+          </p>
+          <p>
+            <span className="font-medium text-green-700">Price:</span>{" "}
+            {product.pricePerUnit} / {product.unit}
+          </p>
+          <p>
+            <span className="font-medium text-green-700">Quantity:</span>{" "}
+            {product.quantity}
+          </p>
+          <p>
+            <span className="font-medium text-green-700">Location:</span>{" "}
+            {product.location}
+          </p>
+          <p>
+            <span className="font-medium text-green-700">Owner:</span>{" "}
+            {product.owner?.ownerName} ({product.owner?.ownerEmail})
+          </p>
+          <p>
+            <span className="font-medium text-green-700">Description:</span>{" "}
+            {product.description}
+          </p>
+          {product.owner?.ownerEmail === user.email && (
+            <div className="flex items-center gap-4">
+              <Link
+                to={`/update/${product._id}`}
+                className="py-2 px-6 bg-green-600 text-white rounded-md cursor-pointer"
+              >
+                Update
+              </Link>
+              <button
+                onClick={() => handleDelete(product._id)}
+                className="py-2 px-6 bg-red-600 text-white rounded-md cursor-pointer"
+              >
+                Delete
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-      <div className="space-y-2 text-gray-700 w-full md:w-1/2 ">
-        <h1 className="text-3xl font-bold text-green-700 mb-4 ">
-          {product.name}
-        </h1>
-        <p>
-          <span className="font-medium text-green-700">Type:</span>{" "}
-          {product.type}
-        </p>
-        <p>
-          <span className="font-medium text-green-700">Price:</span>{" "}
-          {product.pricePerUnit} / {product.unit}
-        </p>
-        <p>
-          <span className="font-medium text-green-700">Quantity:</span>{" "}
-          {product.quantity}
-        </p>
-        <p>
-          <span className="font-medium text-green-700">Location:</span>{" "}
-          {product.location}
-        </p>
-        <p>
-          <span className="font-medium text-green-700">Owner:</span>{" "}
-          {product.owner?.ownerName} ({product.owner?.ownerEmail})
-        </p>
-        <p>
-          <span className="font-medium text-green-700">Description:</span>{" "}
-          {product.description}
-        </p>
-        {product.owner?.ownerEmail === user.email && (
-          <div className="flex items-center gap-4">
-            <Link
-              to={`/update/${product._id}`}
-              className="py-2 px-6 bg-green-600 text-white rounded-md cursor-pointer"
-            >
-              Update
-            </Link>
-            <button
-              onClick={() => handleDelete(product._id)}
-              className="py-2 px-6 bg-red-600 text-white rounded-md cursor-pointer"
-            >
-              Delete
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
+      {product.owner?.ownerEmail === user.email ? (
+        <OwnerTabile interests={product.interests} />
+      ) : (
+        <IntrestFrom crop={product} />
+      )}
+    </>
   );
 };
 
