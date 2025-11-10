@@ -158,7 +158,11 @@ const CropDetails = () => {
         </div>
       </div>
       {product.owner?.ownerEmail === user.email ? (
-        <OwnerTabile interests={product.interests} />
+        <OwnerTabile
+          interests={product.interests}
+          cropId={product._id}
+          user={user}
+        />
       ) : (
         <IntrestFrom crop={product} />
       )}
