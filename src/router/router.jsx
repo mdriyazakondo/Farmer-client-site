@@ -13,6 +13,7 @@ import PriviteRoute from "./PriviteRoute";
 import MyPosts from "../pages/MyPosts/MyPosts";
 import MyInterests from "../pages/MyInterests/MyInterests";
 import MyProfile from "../pages/MyProfile/MyProfile";
+import UpdateCrop from "../pages/UpdateCrop/UpdateCrop";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +44,14 @@ export const router = createBrowserRouter([
         element: (
           <PriviteRoute>
             <AddCrop />
+          </PriviteRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PriviteRoute>
+            <UpdateCrop />
           </PriviteRoute>
         ),
       },

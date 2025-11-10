@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import LoadingSpinner from "../pages/Loading/Loading";
 import Swal from "sweetalert2";
@@ -10,6 +10,7 @@ const CropDetails = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!user?.accessToken) return;
@@ -61,7 +62,7 @@ const CropDetails = () => {
         if (!response.ok) {
           throw new Error("Failed to delete the product.");
         }
-
+        navigate("/all-crop");
         await Swal.fire({
           title: "Deleted ✅",
           text: "The product has been successfully deleted.",
@@ -135,17 +136,22 @@ const CropDetails = () => {
           <span className="font-medium text-green-700">Description:</span>{" "}
           {product.description}
         </p>
-        <div className="flex items-center gap-4">
-          <button className="py-2 px-6 bg-green-600 text-white rounded-md cursor-pointer">
-            Update
-          </button>
-          <button
-            onClick={() => handleDelete(product._id)}
-            className="py-2 px-6 bg-red-600 text-white rounded-md cursor-pointer"
-          >
-            Delete
-          </button>
-        </div>
+        {product.owner?.ownerEmail === user.email && (
+          <div className="flex items-center gap-4">
+            <Link
+              to={`/update/${product._id}`}
+              className="py-2 px-6 bg-green-600 text-white rounded-md cursor-pointer"
+            >
+              Update
+            </Link>
+            <button
+              onClick={() => handleDelete(product._id)}
+              className="py-2 px-6 bg-red-600 text-white rounded-md cursor-pointer"
+            >
+              Delete
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
