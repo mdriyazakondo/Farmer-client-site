@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
-import Swal from "sweetalert2"; // npm install sweetalert2
+import Swal from "sweetalert2";
 import { AuthContext } from "../../context/AuthProvider";
 import LoadingSpinner from "../Loading/Loading";
 
 const AddCrop = () => {
-  const { user } = useContext(AuthContext); // logged in user info
+  const { user } = useContext(AuthContext); 
   const [loading, setLoading] = useState(false);
 
   const handleAddCrop = async (e) => {
@@ -81,7 +81,7 @@ const AddCrop = () => {
       </h2>
 
       <form onSubmit={handleAddCrop} className="space-y-4">
-        {/* Crop Name */}
+
         <div>
           <label className="block font-medium mb-1">Crop Name</label>
           <input
@@ -93,7 +93,7 @@ const AddCrop = () => {
           />
         </div>
 
-        {/* Type */}
+
         <div>
           <label className="block font-medium mb-1">Type</label>
           <select
@@ -108,7 +108,7 @@ const AddCrop = () => {
           </select>
         </div>
 
-        {/* Price & Unit */}
+
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="block font-medium mb-1">Price per Unit</label>
@@ -136,7 +136,7 @@ const AddCrop = () => {
           </div>
         </div>
 
-        {/* Quantity */}
+ 
         <div>
           <label className="block font-medium mb-1">Estimated Quantity</label>
           <input
@@ -149,7 +149,7 @@ const AddCrop = () => {
           />
         </div>
 
-        {/* Description */}
+
         <div>
           <label className="block font-medium mb-1">Description</label>
           <textarea
@@ -161,7 +161,7 @@ const AddCrop = () => {
           ></textarea>
         </div>
 
-        {/* Location */}
+
         <div>
           <label className="block font-medium mb-1">Location</label>
           <input
@@ -173,7 +173,6 @@ const AddCrop = () => {
           />
         </div>
 
-        {/* Image URL */}
         <div>
           <label className="block font-medium mb-1">Image URL</label>
           <input
@@ -185,7 +184,6 @@ const AddCrop = () => {
           />
         </div>
 
-        {/* Submit Button */}
         <button
           type="submit"
           disabled={loading}

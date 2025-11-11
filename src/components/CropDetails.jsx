@@ -142,22 +142,6 @@ const CropDetails = () => {
             <span className="font-medium text-green-700">Description:</span>{" "}
             {product.description}
           </p>
-          {product.owner?.ownerEmail === user.email && (
-            <div className="flex items-center gap-4">
-              <Link
-                to={`/update/${product._id}`}
-                className="py-2 px-6 bg-green-600 text-white rounded-md cursor-pointer"
-              >
-                Update
-              </Link>
-              <button
-                onClick={() => handleDelete(product._id)}
-                className="py-2 px-6 bg-red-600 text-white rounded-md cursor-pointer"
-              >
-                Delete
-              </button>
-            </div>
-          )}
         </div>
       </div>
       {product.owner?.ownerEmail === user.email ? (
