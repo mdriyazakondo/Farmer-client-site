@@ -37,7 +37,7 @@ const CropAllProducts = () => {
   if (loading) return <LoadingSpinner />;
 
   return (
-    <div className="px-5 md:px-0 my-10">
+    <div className="px-5 md:px-0 py-8">
       {/* Heading */}
       <h3 className="text-3xl md:text-4xl font-bold text-center text-green-600 mb-6">
         KrishiLink Farmer’s All Crops

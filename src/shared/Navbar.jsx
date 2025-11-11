@@ -17,11 +17,9 @@ const Navbar = () => {
   const { user, signOutUserFunc, loading } = useContext(AuthContext);
   const menuRef = useRef(null);
 
-
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
-
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -91,7 +89,7 @@ const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white border-b border-gray-200 shadow-sm z-50">
-      <nav className="flex items-center justify-between max-w-[1300px] mx-auto px-4 py-3 lg:py-4">
+      <nav className="flex items-center justify-between max-w-[1500px] mx-auto px-4 md:px-0 py-3 lg:py-4">
         <Link
           to="/"
           className="text-xl lg:text-2xl font-bold text-green-600 flex items-center gap-2"
@@ -140,7 +138,6 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-
 
         <button
           onClick={() => setOpen(!open)}
