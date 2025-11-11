@@ -10,6 +10,7 @@ import { BsPostcardFill } from "react-icons/bs";
 import { IoCropSharp } from "react-icons/io5";
 import { AuthContext } from "../context/AuthProvider";
 import Swal from "sweetalert2";
+import { GoSignIn } from "react-icons/go";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -130,12 +131,20 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <Link
-              to="/login"
-              className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md flex items-center gap-2 shadow-md"
-            >
-              <BiLogIn className="text-xl" /> Login
-            </Link>
+            <div className="flex items-center gap-3">
+              <Link
+                to="/register"
+                className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md flex items-center gap-1 shadow-md"
+              >
+                <GoSignIn className="text-xl" /> Register
+              </Link>{" "}
+              <Link
+                to="/login"
+                className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md flex items-center gap-1 shadow-md"
+              >
+                <GoSignIn className="text-xl" /> Login
+              </Link>
+            </div>
           )}
         </div>
 
