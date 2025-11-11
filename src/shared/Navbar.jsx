@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router";
 import { FaHome, FaUserCheck } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -15,6 +15,29 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const { user, signOutUserFunc, loading } = useContext(AuthContext);
+  const menuRef = useRef(null);
+
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
+
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [open]);
 
   const links = [
     { to: "/", name: "Home", icon: <FaHome /> },
@@ -32,6 +55,7 @@ const Navbar = () => {
     location.pathname === path
       ? "text-green-600 font-semibold border-b-2 border-green-600 pb-1"
       : "text-gray-700 hover:text-green-600";
+
   const handleLogout = async () => {
     try {
       const result = await Swal.fire({
@@ -46,7 +70,7 @@ const Navbar = () => {
 
       if (result.isConfirmed) {
         await signOutUserFunc();
-        await Swal.fire({
+        Swal.fire({
           title: "Logged Out ✅",
           text: "You have successfully logged out.",
           icon: "success",
@@ -66,20 +90,20 @@ const Navbar = () => {
   };
 
   return (
-    <div className="py-4 border-b border-gray-200 bg-white shadow-sm z-50 relative">
-      <nav className="flex items-center justify-between max-w-[1500px] mx-auto px-4 md:px-0 relative">
+    <header className="fixed top-0 left-0 w-full bg-white border-b border-gray-200 shadow-sm z-50">
+      <nav className="flex items-center justify-between max-w-[1300px] mx-auto px-4 py-3 lg:py-4">
         <Link
           to="/"
-          className="text-2xl font-bold text-green-600 flex items-center  gap-1"
+          className="text-xl lg:text-2xl font-bold text-green-600 flex items-center gap-2"
         >
           <span className="px-2 py-1 bg-green-500 text-white rounded-md">
-            <GiFarmer className="h-6 w-6 " />
+            <GiFarmer className="h-6 w-6" />
           </span>
-          <span> KrishiLink-Farmer’s</span>
+          <span className="hidden sm:block">KrishiLink-Farmer’s</span>
         </Link>
 
-        <div className="hidden lg:flex flex-1 justify-center items-center gap-8 font-medium">
-          {links.map((link) => (
+        <div className="hidden lg:flex items-center gap-8 font-medium">
+          {[...links, ...(user ? userLinks : [])].map((link) => (
             <Link
               key={link.to}
               to={link.to}
@@ -88,52 +112,35 @@ const Navbar = () => {
               {link.icon} {link.name}
             </Link>
           ))}
-          {user &&
-            userLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`flex items-center gap-2 ${isActive(link.to)}`}
-              >
-                {link.icon} {link.name}
-              </Link>
-            ))}
         </div>
 
-        <div className="hidden lg:flex">
+        <div className="hidden lg:flex items-center gap-3">
           {loading ? (
-            <div className="flex-col gap-4 w-full flex items-center justify-center">
-              <div className="w-10 h-10 border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
-                <div className="w-10 h-10 border-4 border-transparent text-red-400 text-2xl animate-spin flex items-center justify-center border-t-red-400 rounded-full"></div>
-              </div>
+            <div className="w-8 h-8 border-4 border-green-400 border-t-transparent rounded-full animate-spin"></div>
+          ) : user ? (
+            <div className="flex items-center gap-3">
+              <img
+                className="w-10 h-10 rounded-full border-2 border-green-500 object-cover"
+                src={user?.photoURL}
+                alt={user?.displayName || "User"}
+              />
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md flex items-center gap-2 shadow-md transition"
+              >
+                <CgLogOut className="text-xl" /> Logout
+              </button>
             </div>
           ) : (
-            <>
-              {user ? (
-                <div className="flex items-center gap-3">
-                  <img
-                    className="w-10 h-10 rounded-full border-2 border-green-500"
-                    src={user?.photoURL}
-                    alt={user?.displayName}
-                  />
-                  <button
-                    onClick={handleLogout}
-                    className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow-md flex items-center"
-                  >
-                    <CgLogOut className="text-2xl font-bold" /> Logout
-                  </button>
-                </div>
-              ) : (
-                <Link
-                  to="/login"
-                  className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md shadow-md flex items-center gap-2"
-                >
-                  <BiLogIn className="text-2xl font-bold" /> Login
-                </Link>
-              )}
-            </>
+            <Link
+              to="/login"
+              className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-md flex items-center gap-2 shadow-md"
+            >
+              <BiLogIn className="text-xl" /> Login
+            </Link>
           )}
         </div>
+
 
         <button
           onClick={() => setOpen(!open)}
@@ -141,59 +148,48 @@ const Navbar = () => {
         >
           {open ? <FiX /> : <FiMenu />}
         </button>
-
-        <div
-          className={`absolute top-full left-0 w-full bg-white shadow-md py-4 flex-col items-start gap-3 px-6 font-medium md:hidden transition-all duration-300 ${
-            open
-              ? "opacity-100 translate-y-0 flex"
-              : "opacity-0 -translate-y-5 hidden"
-          }`}
-        >
-          {links.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              onClick={() => setOpen(false)}
-              className={`flex items-center gap-2 ${isActive(link.to)}`}
-            >
-              {link.icon} {link.name}
-            </Link>
-          ))}
-
-          {user &&
-            userLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={() => setOpen(false)}
-                className={`flex items-center gap-2 ${isActive(link.to)}`}
-              >
-                {link.icon} {link.name}
-              </Link>
-            ))}
-
-          {user ? (
-            <button
-              onClick={async () => {
-                await handleLogout();
-                setOpen(false);
-              }}
-              className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
-            >
-              <CgLogOut className="text-xl" /> Logout
-            </button>
-          ) : (
-            <Link
-              to="/login"
-              onClick={() => setOpen(false)}
-              className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md"
-            >
-              <BiLogIn className="text-xl" /> Login
-            </Link>
-          )}
-        </div>
       </nav>
-    </div>
+
+      <div
+        ref={menuRef}
+        className={`absolute top-[55px] left-0 w-full bg-white shadow-md flex-col items-start gap-3 px-6 py-5 font-medium transition-all duration-300 lg:hidden ${
+          open
+            ? "opacity-100 translate-y-0 flex"
+            : "opacity-0 -translate-y-5 hidden"
+        }`}
+      >
+        {[...links, ...(user ? userLinks : [])].map((link) => (
+          <Link
+            key={link.to}
+            to={link.to}
+            onClick={() => setOpen(false)}
+            className={`flex items-center gap-2 text-base ${isActive(link.to)}`}
+          >
+            {link.icon} {link.name}
+          </Link>
+        ))}
+
+        {user ? (
+          <button
+            onClick={async () => {
+              await handleLogout();
+              setOpen(false);
+            }}
+            className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md text-base"
+          >
+            <CgLogOut className="text-xl" /> Logout
+          </button>
+        ) : (
+          <Link
+            to="/login"
+            onClick={() => setOpen(false)}
+            className="w-full px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg flex items-center justify-center gap-2 shadow-md text-base"
+          >
+            <BiLogIn className="text-xl" /> Login
+          </Link>
+        )}
+      </div>
+    </header>
   );
 };
 
