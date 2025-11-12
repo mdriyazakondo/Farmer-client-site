@@ -26,8 +26,11 @@ const Footer = () => {
               KrishiLink-Farmer’s
             </Link>
             <p className="mt-4 text-sm leading-6 text-slate-400">
-              Free and open-source Tailwind UI components. Over 300+ modern,
-              customizable designs for developers.
+              KrishiLink Farmer connects farmers, buyers, and agri-enthusiasts
+              in one platform. Easily showcase crops, manage interests, and grow
+              your agri-business online. Empowering farmers with modern tools
+              for smarter farming decisions. Join KrishiLink — where agriculture
+              meets innovation.
             </p>
 
             {/* Social Links */}
