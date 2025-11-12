@@ -76,6 +76,9 @@ const MyPosts = () => {
 
   return (
     <div className="py-10 px-3 sm:px-6 lg:px-10 relative min-h-[56vh]">
+       <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 text-center text-green-500">
+        My All Post
+      </h2>
       {products?.length > 0 ? (
         <div className="overflow-x-auto w-full">
           <table className="min-w-full border border-gray-200 text-sm sm:text-base">
