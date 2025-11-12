@@ -11,7 +11,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-slate-300 py-12 px-6 ">
+    <footer className="bg-slate-900 text-slate-300 py-12 px-6">
       <div className="max-w-[1500px] mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Logo & About */}
@@ -71,25 +71,25 @@ const Footer = () => {
             <ul className="space-y-2 text-slate-400">
               <li>
                 <a href="#" className="hover:text-green-400 transition">
-                  About us
+                  Home
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-green-400 transition">
-                  Careers{" "}
+                  All
                   <span className="text-xs text-white bg-green-600 rounded-md ml-2 px-2 py-0.5">
-                    Hiring!
+                    Crops
                   </span>
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-green-400 transition">
-                  Contact us
+                  My Profile
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-green-400 transition">
-                  Privacy policy
+                  My Post
                 </a>
               </li>
             </ul>
@@ -101,22 +101,22 @@ const Footer = () => {
             <ul className="space-y-2 text-slate-400">
               <li>
                 <a href="#" className="hover:text-green-400 transition">
-                  Documentation
+                  Register
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-green-400 transition">
-                  Tutorials
+                  Login
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-green-400 transition">
-                  Blog
+                  Add Crop
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:text-green-400 transition">
-                  Support
+                  My Interests
                 </a>
               </li>
             </ul>
@@ -144,7 +144,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-slate-800 mt-10 pt-6 text-center text-slate-500 text-sm">
-          © 2025 <span className="text-green-400"> KrishiLink-Farmer’s</span>.
+          © 2025 <span className="text-green-400">KrishiLink-Farmer’s</span>.
           All rights reserved.
         </div>
       </div>

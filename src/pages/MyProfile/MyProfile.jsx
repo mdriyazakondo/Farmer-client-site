@@ -14,7 +14,7 @@ const MyProfile = () => {
     setLoading(true);
     updateProfile(user, { displayName: name, photoURL: photo })
       .then(() => {
-        console.log(user);
+
         setLoading(false);
       })
       .catch((err) => {

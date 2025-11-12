@@ -81,15 +81,15 @@ const MyPosts = () => {
           <table className="min-w-full border border-gray-200 text-sm sm:text-base">
             <thead className="bg-green-600 text-white">
               <tr>
-                <th className="px-4 py-3 text-left whitespace-nowrap">
+                <th className="px-4 py-3  whitespace-nowrap text-center">
                   Crop Name
                 </th>
-                <th className="px-4 py-3 text-left whitespace-nowrap">Type</th>
-                <th className="px-4 py-3 text-left whitespace-nowrap">Price</th>
-                <th className="px-4 py-3 text-left whitespace-nowrap">
+                <th className="px-4 py-3  whitespace-nowrap text-center">Type</th>
+                <th className="px-4 py-3  whitespace-nowrap text-center">Price</th>
+                <th className="px-4 py-3  whitespace-nowrap text-center">
                   Quantity
                 </th>
-                <th className="px-4 py-3 text-left whitespace-nowrap">Date</th>
+                <th className="px-4 py-3  whitespace-nowrap text-center">Date</th>
                 <th className="px-4 py-3 text-center whitespace-nowrap">
                   Actions
                 </th>
@@ -101,18 +101,18 @@ const MyPosts = () => {
                   key={crop._id}
                   className="border-b border-gray-200 hover:bg-gray-50"
                 >
-                  <td className="px-4 py-2 whitespace-nowrap">{crop.name}</td>
-                  <td className="px-4 py-2 whitespace-nowrap">{crop.type}</td>
-                  <td className="px-4 py-2 whitespace-nowrap">
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">{crop.name}</td>
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">{crop.type}</td>
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
                     ${crop.pricePerUnit}
                   </td>
-                  <td className="px-4 py-2 whitespace-nowrap">
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
                     {crop.quantity} {crop.unit}
                   </td>
-                  <td className="px-4 py-2 whitespace-nowrap">
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
                     {new Date(crop.created_at).toLocaleDateString()}
                   </td>
-                  <td className="px-4 py-2 whitespace-nowrap text-center">
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap text-center">
                     <div className="flex flex-nowrap justify-center gap-2">
                       <button
                         onClick={() => setSelectedCropId(crop._id)}

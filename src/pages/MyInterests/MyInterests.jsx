@@ -48,24 +48,31 @@ const MyInterests = () => {
       ) : (
         <div className="overflow-x-auto w-full">
           <table className="w-full border border-gray-200 text-sm sm:text-base">
-            <thead className="bg-gray-100">
+            <thead className="bg-green-600 text-white">
               <tr className="whitespace-nowrap">
-                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b text-left">
+                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r text-center">
                   #
                 </th>
-                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b text-left">
+                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r text-center">
                   Crop Name
                 </th>
-                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b text-left">
+                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r text-center">
+                  Owner Name
+                </th>
+                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r text-center">
+                  Owner Email
+                </th>
+
+                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r text-center">
                   Quantity
                 </th>
-                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b text-left">
+                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r text-center">
                   Message
                 </th>
-                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b text-left">
+                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r text-center">
                   Status
                 </th>
-                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b text-left">
+                <th className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r text-center">
                   Submitted On
                 </th>
               </tr>
@@ -75,22 +82,31 @@ const MyInterests = () => {
               {products.map((product, index) => (
                 <tr
                   key={product.cropId}
-                  className="hover:bg-gray-50 transition whitespace-nowrap"
+                  className="hover:bg-green-50 transition whitespace-nowrap"
                 >
-                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b">
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r">
                     {index + 1}
                   </td>
-                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b font-medium">
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r font-medium">
                     {product.cropName}
                   </td>
-                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b">
-                    {product.interest.quantity}
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r font-medium">
+                    {product.interest.ownerName}
                   </td>
-                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b">
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r font-medium">
+                    {product.interest.ownerEmail}
+                  </td>
+
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r">
+                    {product.interest.quantity < 10
+                      ? `0${product.interest.quantity}`
+                      : product.interest.quantity}
+                  </td>
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r">
                     {product.interest.message || "-"}
                   </td>
                   <td
-                    className={`py-2 sm:py-3 px-2 sm:px-4 border-b font-semibold ${
+                    className={`py-2 sm:py-3 px-2 sm:px-4 border-b border-r font-semibold ${
                       product.interest.status === "pending"
                         ? "text-yellow-500"
                         : product.interest.status === "accepted"
@@ -100,7 +116,7 @@ const MyInterests = () => {
                   >
                     {product.interest.status}
                   </td>
-                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b text-gray-500 text-xs sm:text-sm">
+                  <td className="py-2 sm:py-3 px-2 sm:px-4 border-b border-r text-gray-500 text-xs sm:text-sm">
                     {new Date(product.interest.createdAt).toLocaleString()}
                   </td>
                 </tr>

@@ -8,6 +8,9 @@ const IntrestFrom = ({ crop }) => {
   const [submitting, setSubmitting] = useState(false);
   const { user } = use(AuthContext);
 
+  const ownerEmail = crop?.owner?.ownerEmail;
+  const ownerName = crop?.owner?.ownerName;
+
   const totalPrice = (Number(quantity) || 0) * (crop?.pricePerUnit || 0);
 
   const handleSubmit = async (e) => {
@@ -41,6 +44,8 @@ const IntrestFrom = ({ crop }) => {
           body: JSON.stringify({
             userEmail: user.email,
             userName: user.displayName,
+            ownerEmail: ownerEmail,
+            ownerName: ownerName,
             quantity,
             message,
           }),
