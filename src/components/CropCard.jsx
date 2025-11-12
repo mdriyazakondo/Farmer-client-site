@@ -19,9 +19,9 @@ const CropCard = ({ products }) => {
         />
       </div>
 
-      {/* Product Name */}
-      <div className="flex items-center gap-6">
-        <h2 className="text-2xl font-semibold text-green-800 mb-1">
+
+      <div className="flex items-center gap-4">
+        <h2 className="text-2xl font-semibold text-green-800 mb-1 text-nowrap">
           {products.name}
         </h2>
         <p className="text-green-600 bg-green-100 rounded-full px-5 py-1 italic ">
@@ -29,7 +29,7 @@ const CropCard = ({ products }) => {
         </p>
       </div>
 
-      {/* Details */}
+
       <div className="space-y-2 text-gray-700">
         <div>
           <span className="font-medium text-green-700">Price per Unit:</span>{" "}
