@@ -12,7 +12,6 @@ const MyPosts = () => {
   const [selectedCropId, setSelectedCropId] = useState(null);
   const { user } = useContext(AuthContext);
 
-
   const fetchProducts = async () => {
     if (!user?.email) return;
     setLoading(true);
@@ -76,7 +75,7 @@ const MyPosts = () => {
 
   return (
     <div className="py-10 px-3 sm:px-6 lg:px-10 relative min-h-[56vh]">
-       <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 text-center text-green-500">
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-4 sm:mb-6 text-center text-green-500">
         My All Post
       </h2>
       {products?.length > 0 ? (
@@ -85,14 +84,29 @@ const MyPosts = () => {
             <thead className="bg-green-600 text-white">
               <tr>
                 <th className="px-4 py-3  whitespace-nowrap text-center">
+                  Crop Image
+                </th>
+                <th className="px-4 py-3  whitespace-nowrap text-center">
                   Crop Name
                 </th>
-                <th className="px-4 py-3  whitespace-nowrap text-center">Type</th>
-                <th className="px-4 py-3  whitespace-nowrap text-center">Price</th>
+                <th className="px-4 py-3  whitespace-nowrap text-center">
+                  Owner Name
+                </th>
+                <th className="px-4 py-3  whitespace-nowrap text-center">
+                  Location
+                </th>
+                <th className="px-4 py-3  whitespace-nowrap text-center">
+                  Type
+                </th>
+                <th className="px-4 py-3  whitespace-nowrap text-center">
+                  Price
+                </th>
                 <th className="px-4 py-3  whitespace-nowrap text-center">
                   Quantity
                 </th>
-                <th className="px-4 py-3  whitespace-nowrap text-center">Date</th>
+                <th className="px-4 py-3  whitespace-nowrap text-center">
+                  Date
+                </th>
                 <th className="px-4 py-3 text-center whitespace-nowrap">
                   Actions
                 </th>
@@ -104,8 +118,21 @@ const MyPosts = () => {
                   key={crop._id}
                   className="border-b border-gray-200 hover:bg-gray-50"
                 >
-                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">{crop.name}</td>
-                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">{crop.type}</td>
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
+                    <img className="rounded-full w-20 h-10" src={crop.image} alt="" />
+                  </td>
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
+                    {crop.name}
+                  </td>
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
+                    {crop.owner.ownerName}
+                  </td>
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
+                    {crop.location}
+                  </td>
+                  <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
+                    {crop.type}
+                  </td>
                   <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
                     ${crop.pricePerUnit}
                   </td>
