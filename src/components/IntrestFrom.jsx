@@ -1,14 +1,13 @@
 import React, { use, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthProvider";
-import LoadingSpinner from "../pages/Loading/Loading";
 
-const IntrestFrom = ({ crop }) => {
+
+const IntrestFrom = ({ crop, setLoading }) => {
   const [quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const { user } = use(AuthContext);
-  const [loading, setLoading] = useState(false);
 
   const ownerEmail = crop?.owner?.ownerEmail;
   const ownerName = crop?.owner?.ownerName;
@@ -72,8 +71,6 @@ const IntrestFrom = ({ crop }) => {
       setLoading(false);
     }
   };
-
-  if (loading) return <LoadingSpinner />;
 
   return (
     <div className="max-w-md mx-auto bg-white shadow-lg rounded-2xl p-6 border mb-8">

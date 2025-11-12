@@ -151,7 +151,7 @@ const CropDetails = () => {
           user={user}
         />
       ) : (
-        <IntrestFrom crop={product} />
+        <IntrestFrom crop={product}  setLoading={setLoading} />
       )}
     </>
   );
