@@ -9,8 +9,8 @@ const MyProfile = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const photo = e.target.photo.value;
+    const name = e.target.name.value.trim();
+    const photo = e.target.photo.value.trim();
     setLoading(true);
     updateProfile(user, { displayName: name, photoURL: photo })
       .then(() => {
@@ -50,6 +50,7 @@ const MyProfile = () => {
               type="text"
               name="name"
               placeholder="Your Name"
+              required
               className="border w-full rounded-md outline-none  py-2 px-4 border-green-500"
             />
           </div>
@@ -58,6 +59,7 @@ const MyProfile = () => {
             <input
               type="text"
               name="photo"
+              required
               placeholder="Your Photo"
               className="border w-full rounded-md outline-none  py-2 px-4 border-green-500"
             />
