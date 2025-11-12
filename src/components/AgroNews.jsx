@@ -24,7 +24,7 @@ const AgroNews = () => {
       id: 3,
       title: "Digital Agriculture: The Future of Bangladesh",
       image:
-        "https://pressxpress.org/wp-content/uploads/2023/01/Development-of-E-agriculture-in-Bangladesh-2.jpg",
+        "https://ecdn.dhakatribune.net/contents/cache/images/800x450x1/uploads/dten/2022/01/19/bigstock-smart-farming-digital-technolo-428396306.jpeg",
       description:
         "Explore how technology is transforming the agricultural landscape across rural areas.",
       date: "Nov 02, 2025",

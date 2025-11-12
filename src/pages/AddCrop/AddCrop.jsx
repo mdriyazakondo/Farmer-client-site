@@ -2,10 +2,12 @@ import { useState, useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../context/AuthProvider";
 import LoadingSpinner from "../Loading/Loading";
+import { useNavigate } from "react-router";
 
 const AddCrop = () => {
-  const { user } = useContext(AuthContext); 
+  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleAddCrop = async (e) => {
     e.preventDefault();
@@ -51,6 +53,7 @@ const AddCrop = () => {
           confirmButtonText: "OK",
         });
         form.reset();
+        navigate("/all-crop");
       } else {
         Swal.fire({
           title: "Error!",
@@ -81,7 +84,6 @@ const AddCrop = () => {
       </h2>
 
       <form onSubmit={handleAddCrop} className="space-y-4">
-
         <div>
           <label className="block font-medium mb-1">Crop Name</label>
           <input
@@ -92,7 +94,6 @@ const AddCrop = () => {
             className="input input-bordered w-full border-gray-300 rounded-lg p-2 outline-none border"
           />
         </div>
-
 
         <div>
           <label className="block font-medium mb-1">Type</label>
@@ -107,7 +108,6 @@ const AddCrop = () => {
             <option value="Grain">Grain</option>
           </select>
         </div>
-
 
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -136,7 +136,6 @@ const AddCrop = () => {
           </div>
         </div>
 
- 
         <div>
           <label className="block font-medium mb-1">Estimated Quantity</label>
           <input
@@ -149,7 +148,6 @@ const AddCrop = () => {
           />
         </div>
 
-
         <div>
           <label className="block font-medium mb-1">Description</label>
           <textarea
@@ -160,7 +158,6 @@ const AddCrop = () => {
             className="input input-bordered w-full border-gray-300 rounded-lg p-2 outline-none border resize-none"
           ></textarea>
         </div>
-
 
         <div>
           <label className="block font-medium mb-1">Location</label>
