@@ -12,7 +12,6 @@ const CropDetails = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!user?.accessToken) return;
@@ -38,54 +37,6 @@ const CropDetails = () => {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, [id, user]);
-
-  // delete
-  const handleDelete = async (id) => {
-    try {
-      const result = await Swal.fire({
-        title: "Are you sure?",
-        text: "You are about to delete this product.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#22c55e",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      });
-
-      if (result.isConfirmed) {
-        const response = await fetch(
-          `https://krishilink-server-three.vercel.app/products/${id}`,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-              authorization: `Bearer ${user.accessToken}`,
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to delete the product.");
-        }
-        navigate("/all-crop");
-        await Swal.fire({
-          title: "Deleted ✅",
-          text: "The product has been successfully deleted.",
-          icon: "success",
-          confirmButtonColor: "#22c55e",
-          timer: 2000,
-          timerProgressBar: true,
-        });
-      }
-    } catch (error) {
-      Swal.fire({
-        title: "Delete Failed ❌",
-        text: error.message || "Something went wrong during deletion.",
-        icon: "error",
-        confirmButtonColor: "#ef4444",
-      });
-    }
-  };
 
   if (loading) {
     return <LoadingSpinner />;
@@ -151,7 +102,7 @@ const CropDetails = () => {
           user={user}
         />
       ) : (
-        <IntrestFrom crop={product}  setLoading={setLoading} />
+        <IntrestFrom crop={product} setLoading={setLoading} />
       )}
     </>
   );
