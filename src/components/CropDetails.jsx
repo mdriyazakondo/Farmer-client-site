@@ -35,7 +35,7 @@ const CropDetails = () => {
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [id, user, product]);
+  }, [id, user]);
 
   if (error || !product) {
     return (
@@ -50,6 +50,9 @@ const CropDetails = () => {
     );
   }
 
+  if (loading) {
+    return <LoadingSpinner />;
+  }
   return (
     <>
       <div className="max-w-5xl mx-auto my-10 p-6 bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-lg flex flex-col items-center justify-center md:flex-row gap-6">

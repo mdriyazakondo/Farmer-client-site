@@ -56,6 +56,8 @@ const Login = () => {
       });
   };
 
+
+
   return (
     <div className="flex items-center justify-center min-h-[80vh] ">
       <div className="flex flex-col justify-center w-full max-w-md rounded-2xl px-8 py-10 border border-slate-800 bg-slate-900 text-white shadow-xl">
@@ -131,7 +133,7 @@ const Login = () => {
           onClick={handleGoogle}
           className="full px-4 py-3 font-medium text-white bg-green-600 rounded-lg cursor-pointer hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
         >
-          Goole Login
+          Google Login
         </button>
       </div>
     </div>

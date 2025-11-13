@@ -6,12 +6,13 @@ const MyInterests = () => {
   const [products, setProducts] = useState([]);
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
+  const [sortOrder, setSortOrder] = useState("");
 
   useEffect(() => {
     if (!user?.email) return;
     setLoading(true);
     fetch(
-      `https://krishilink-server-three.vercel.app/my-interests?userEmail=${user.email}`,
+      `https://krishilink-server-three.vercel.app/my-interests?userEmail=${user.email}&sort=${sortOrder}`,
       {
         headers: {
           authorization: `Bearer ${user.accessToken}`,
@@ -27,7 +28,7 @@ const MyInterests = () => {
         console.error(err);
         setLoading(false);
       });
-  }, [user]);
+  }, [user, sortOrder]); // ✅ এখানে ঠিকভাবে যোগ করা হয়েছে
 
   if (loading) {
     return <LoadingSpinner />;
@@ -38,6 +39,18 @@ const MyInterests = () => {
       <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 text-center ">
         My Interests
       </h2>
+
+      <div className="flex items-end justify-end mb-4">
+        <select
+          value={sortOrder}
+          onChange={(e) => setSortOrder(e.target.value)}
+          className="px-4 py-2 border border-gray-300 rounded-sm shadow-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-green-300 focus:border-green-300 transition"
+        >
+          <option value="">Normal</option>
+          <option value="low-high">Low - High</option>
+          <option value="high-low">High - Low</option>
+        </select>
+      </div>
 
       {products.length === 0 ? (
         <div className="flex flex-col items-center justify-center min-h-[40vh] text-center">
