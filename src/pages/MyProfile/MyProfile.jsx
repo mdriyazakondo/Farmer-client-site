@@ -14,7 +14,6 @@ const MyProfile = () => {
     setLoading(true);
     updateProfile(user, { displayName: name, photoURL: photo })
       .then(() => {
-
         setLoading(false);
       })
       .catch((err) => {
@@ -49,6 +48,7 @@ const MyProfile = () => {
             <input
               type="text"
               name="name"
+              defaultValue={user.displayName}
               placeholder="Your Name"
               required
               className="border w-full rounded-md outline-none  py-2 px-4 border-green-500"
@@ -59,6 +59,7 @@ const MyProfile = () => {
             <input
               type="text"
               name="photo"
+              defaultValue={user.photoURL}
               required
               placeholder="Your Photo"
               className="border w-full rounded-md outline-none  py-2 px-4 border-green-500"
