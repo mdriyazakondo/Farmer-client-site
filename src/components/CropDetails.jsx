@@ -35,7 +35,7 @@ const CropDetails = () => {
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [id, user]);
+  }, [id, user, product]);
 
   if (error || !product) {
     return (
