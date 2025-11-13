@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import { AuthContext } from "../context/AuthProvider";
 import LoadingSpinner from "../pages/Loading/Loading";
-import Swal from "sweetalert2";
 import IntrestFrom from "./IntrestFrom";
 import OwnerTabile from "./OwnerTabile";
 
@@ -36,11 +35,7 @@ const CropDetails = () => {
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [id, user]);
-
-  if (loading) {
-    return <LoadingSpinner />;
-  }
+  }, [id, user, product]);
 
   if (error || !product) {
     return (
@@ -102,7 +97,7 @@ const CropDetails = () => {
           user={user}
         />
       ) : (
-        <IntrestFrom crop={product} setLoading={setLoading} />
+        <IntrestFrom crop={product} />
       )}
     </>
   );

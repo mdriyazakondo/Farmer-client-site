@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthProvider";
 
 
-const IntrestFrom = ({ crop, setLoading }) => {
+const IntrestFrom = ({ crop }) => {
   const [quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -34,7 +34,6 @@ const IntrestFrom = ({ crop, setLoading }) => {
 
     try {
       setSubmitting(true);
-      setLoading(true);
       const response = await fetch(
         `https://krishilink-server-three.vercel.app/products/${crop._id}/interests`,
         {
@@ -60,7 +59,6 @@ const IntrestFrom = ({ crop, setLoading }) => {
       } else {
         Swal.fire("Success", "Your interest has been submitted!", "success");
         setQuantity(1);
-        setLoading(false);
         setMessage("");
       }
     } catch (err) {
@@ -68,7 +66,6 @@ const IntrestFrom = ({ crop, setLoading }) => {
       Swal.fire("Error", "Server error", "error");
     } finally {
       setSubmitting(false);
-      setLoading(false);
     }
   };
 

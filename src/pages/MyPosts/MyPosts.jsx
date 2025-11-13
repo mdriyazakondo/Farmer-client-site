@@ -119,7 +119,7 @@ const MyPosts = () => {
                   className="border-b border-gray-200 hover:bg-gray-50"
                 >
                   <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
-                    <img className="rounded-full w-20 h-10" src={crop.image} alt="" />
+                    <img className="rounded-full w-10 h-10" src={crop.image} alt="" />
                   </td>
                   <td className="px-4 py-2 border-r border-gray-300 whitespace-nowrap">
                     {crop.name}
