@@ -15,7 +15,7 @@ It helps farmers to showcase their crops, traders to find reliable suppliers, an
 
 
 ## 🌍 2. Backend Site
-🔗 **Backend URL:** [https://krishilink-server-three.vercel.app/](https://krishilink-server-three.vercel.app/)
+🔗 **Backend API URL:** https://krishilink-server-three.vercel.app/
 
 
 ---
