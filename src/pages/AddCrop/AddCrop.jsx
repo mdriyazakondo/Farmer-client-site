@@ -53,7 +53,7 @@ const AddCrop = () => {
           confirmButtonText: "OK",
         });
         form.reset();
-        navigate("/all-crop");
+        navigate("/myPosts");
       } else {
         Swal.fire({
           title: "Error!",

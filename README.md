@@ -14,6 +14,10 @@ It helps farmers to showcase their crops, traders to find reliable suppliers, an
 🔗 **Live URL:** [https://krishilink-farmer.netlify.app](https://krishilink-farmer.netlify.app)
 
 
+## 🌍 2. Backend Site
+🔗 **Backend URL:** [https://krishilink-server-three.vercel.app/](https://krishilink-server-three.vercel.app/)
+
+
 ---
 
 ## ✨ 3. Key Features
