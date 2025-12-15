@@ -85,7 +85,7 @@ const AddCrop = () => {
 
       <form onSubmit={handleAddCrop} className="space-y-4">
         <div>
-          <label className="block font-medium mb-1">Crop Name</label>
+          <label className="block font-medium mb-1">Crops Name</label>
           <input
             type="text"
             name="name"
